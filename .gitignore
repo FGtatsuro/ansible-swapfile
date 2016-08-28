@@ -1,0 +1,5 @@
+roles/*
+!roles/swapfile
+
+# Ansible
+tests/*.retry

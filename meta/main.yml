@@ -1,0 +1,18 @@
+galaxy_info:
+  author: FGtatsuro
+  description: Ansible role for swapfile
+  license: MIT
+  min_ansible_version: 2.0
+
+  platforms:
+    - name: Debian
+      versions:
+        - jessie
+
+  galaxy_tags:
+    - development
+    - alpine
+
+# dependencies: []
+dependencies:
+  - FGtatsuro.python-requirements
