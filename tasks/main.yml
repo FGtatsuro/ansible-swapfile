@@ -1,4 +1,6 @@
 ---
 # tasks file for swapfile
-- name: Run specified tasks on current platform 
-  include: "{{ ansible_os_family }}.yml"
+- name: Run specified tasks on current platform
+  # include: "{{ ansible_system }}.yml"
+  include: "Linux.yml"
+

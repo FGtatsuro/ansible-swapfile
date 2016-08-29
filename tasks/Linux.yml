@@ -1,0 +1,32 @@
+# tasks file for swapfile(On Linux)
+# Ref: http://qiita.com/youcune/items/ae8ba3a53cd91c490ad6
+- name: Check whether swapfile is mounted
+  shell: "swapon -s | grep {{ swapfile_path }}"
+  register: result_swapfile_mounted
+  changed_when: no
+  ignore_errors: yes
+  become: yes
+- block:
+  - name: Create swapfile
+    command: "dd if=/dev/zero of={{ swapfile_path }} bs=1M count={{ swapfile_total_mb }}"
+  - name: Format swapfile
+    command: "mkswap {{ swapfile_path }}"
+  - name: Set file attributes of swapfile
+    file:
+      path: "{{ swapfile_path }}"
+      owner: "root"
+      group: "root"
+      mode: "0600"
+  - name: Add swap entry in fstab
+    mount:
+      name: 'none'
+      src: "{{ swapfile_path }}"
+      fstype: 'swap'
+      opts: 'sw'
+      dump: '0'
+      passno: '0'
+      state: 'present'
+  - name: Mount swapfile
+    command: "swapon {{ swapfile_path }}"
+  when: result_swapfile_mounted.rc != 0
+  become: yes

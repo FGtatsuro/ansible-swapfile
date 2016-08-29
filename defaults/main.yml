@@ -1,2 +1,4 @@
 ---
 # defaults file for swapfile
+swapfile_path: '/swapfile'
+swapfile_total_mb: "{{ ansible_memtotal_mb }}"
