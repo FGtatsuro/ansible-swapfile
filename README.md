@@ -17,6 +17,11 @@ Role Variables
 
 The variables we can use in this role.
 
+|name|description|type|default|
+|---|---|---|---|
+|swapfile_path|Path of swap file.|str|/swapfile|
+|swapfile_total_mb|Size(MB) of swap file.|str|ansible_memtotal_mb(from Ansible facts)|
+
 Role Dependencies
 -----------------
 
