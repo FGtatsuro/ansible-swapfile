@@ -10,8 +10,7 @@ Requirements
 
 The dependencies on other softwares/librarys for this role.
 
-- Debian
-- Alpine Linux
+- Linux
 
 Role Variables
 --------------
@@ -31,18 +30,6 @@ Example Playbook
     - hosts: all
       roles:
          - { role: FGtatsuro.swapfile }
-
-Test on local Docker host
--------------------------
-
-This project run tests on Travis CI, but we can also run them on local Docker host.
-Please check `install`, `before_script`, and `script` sections of `.travis.yml`.
-We can use same steps of them for local Docker host.
-
-Local requirements are as follows.
-
-- Ansible (>= 2.0.0)
-- Docker (>= 1.10.1)
 
 License
 -------

@@ -9,10 +9,6 @@ namespace :spec do
     {
       :name     =>  'localhost',
       :backend  =>  'exec'
-    },
-    {
-      :name     =>  'container',
-      :backend  =>  'docker' 
     }
   ]
   if ENV['SPEC_TARGET'] then
